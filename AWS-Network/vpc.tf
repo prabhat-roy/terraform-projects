@@ -1,6 +1,6 @@
-resource "aws_vpc" "prod" {
-  cidr_block = var.prod_vpc_cidr
+resource "aws_vpc" "aws_vpc" {
+  cidr_block = var.aws_vpc_cidr
   tags = {
-    Name = "Production VPC"
+    Name = "AWS VPC"
   }
 }

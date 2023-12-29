@@ -1,14 +1,24 @@
 resource "aws_instance" "public-server" {
-  count         = length(var.azs)
-  ami           = var.aws_ami
-  instance_type = var.aws_instance
-  subnet_id = aws_subnet.public[count.index].id
-  availability_zone = var.azs[count.index]
-  security_groups = ["${aws_security_group.http.id}"]
-
-  user_data = file("data.sh")
-
+  count           = length(var.azs)
+  ami             = var.aws_ami
+  instance_type   = var.aws_instance
+  subnet_id       = aws_subnet.public_subnet[count.index].id
+    availability_zone = var.azs[count.index]
+  security_groups = ["${aws_security_group.ssh.id}"]
+  key_name        = "Hyd-kp"
   tags = {
-    Name = "Public Server - ${count.index + 1}"
+    Name = "AWS Public Server ${count.index + 1}"
+  }
+}
+
+resource "aws_instance" "private-server" {
+  count           = length(var.azs)
+  ami             = var.aws_ami
+  instance_type   = var.aws_instance
+  subnet_id       = aws_subnet.private_subnet[count.index].id
+  security_groups = ["${aws_security_group.ssh.id}"]
+  key_name        = "Hyd-kp"
+  tags = {
+    Name = "AWS Private Server ${count.index + 1}"
   }
 }
