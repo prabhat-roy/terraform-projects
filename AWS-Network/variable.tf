@@ -23,3 +23,11 @@ variable "azs" {
   description = "Availability Zones"
   default     = ["ap-south-2a", "ap-south-2b", "ap-south-2c"]
 }
+variable "aws_instance" {
+  type = string
+  default = "t2.micro"
+}
+variable "aws_ami" {
+  type = string
+  
+}

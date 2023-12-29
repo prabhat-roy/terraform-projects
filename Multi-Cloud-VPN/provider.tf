@@ -8,6 +8,10 @@ terraform {
       source = "hashicorp/google"
       version = "~> 5.10.0"
     }
+    google-beta = {
+      source = "hashicorp/google-beta"
+      version = "5.10.0"
+    }
     azurerm = {
       source = "hashicorp/azurerm"
       version = "~> 3.85.0"
@@ -27,5 +31,5 @@ provider "google" {
 }
 
 provider "azurerm" {
-  
+  features {}
 }
