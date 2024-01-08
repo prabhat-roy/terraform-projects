@@ -1,0 +1,11 @@
+azure_bgp_asn   = "65515"
+resource_group  = "vpn"
+location        = "West India"
+azure_cidr      = "10.1.0.0/16"
+gateway_subnet  = "10.1.1.0/24"
+workload_subnet = "10.1.2.0/24"
+gcp_region      = "asia-south2"
+project_id      = "round-cable-405107"
+gcp_cidr        = ["172.31.0.0/24", "172.31.1.0/24"]
+cred            = "key.json"
+gcp_bgp_asn     = "65273"
